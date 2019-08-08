@@ -1,0 +1,46 @@
+{
+  "name": "lbs-demo",
+  "version": "1.0.0",
+  "description": "A quick demo showcasing some ArcGIS location-based services in an ArcGIS JS API-based client",
+  "scripts": {
+    "postinstall": "del-cli .cache-loader/**",
+    "start": "webpack-dev-server --history-api-fallback --mode development --open",
+    "build": "webpack --mode production",
+    "serve": "webpack-dev-server --history-api-fallback --mode production --open --https --compress",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@arcgis/webpack-plugin": "^4.12.2",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@dojo/shim": "^2.0.0",
+    "@types/arcgis-js-api": "^4.12.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-es2015-modules-amd": "^6.24.1",
+    "cache-loader": "^4.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "del-cli": "^2.0.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "resolve-url-loader": "^2.3.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass-loader": "^7.1.0",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2",
+    "workbox-webpack-plugin": "^4.3.1"
+  },
+  "dependencies": {
+    "calcite-react": "^0.40.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
