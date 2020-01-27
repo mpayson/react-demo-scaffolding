@@ -4,7 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import CalciteThemeProvider from 'calcite-react/CalciteThemeProvider';
- 
+import {preloadAllModules} from './services/MapService';
+
+// greedily fetch all the modules since this is map-centric app
+preloadAllModules();
+
 ReactDOM.render(
   <CalciteThemeProvider>
     <App />

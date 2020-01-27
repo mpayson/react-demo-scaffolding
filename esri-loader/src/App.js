@@ -1,13 +1,12 @@
 import React, {PureComponent} from 'react';
 import Loader from './components/Loader';
 import styled from 'styled-components';
-import {loadModules} from 'esri-loader';
-import options from './esri-loader-options';
+import {loadMap} from './services/MapService';
 
 const MapDiv = styled.div`
   width: 100vw;
   height: 100vh;
-  background: #373938;
+  background: #1D2224;
 `
 
 class App extends PureComponent {
@@ -24,21 +23,12 @@ class App extends PureComponent {
     this.setState({loaded: true});
   }
 
-  componentDidMount(){
-    loadModules(['esri/Map', 'esri/views/MapView'], options)
-      .then(([Map, MapView]) => {
-        this.map = new Map({
-          basemap: 'dark-gray-vector'
-        });
-        this.view = new MapView({
-          map: this.map,
-          container: this.mapViewRef.current,
-          center: [-118.23722, 34.04568],
-          zoom: 8
-        });
-        this.view.when(this._onMapLoad);
-      })
-      .catch(er => console.log(er));
+  async componentDidMount(){
+    const mapOptions = {basemap: 'dark-gray-vector'};
+    const viewOptions = {center: [-118.23722, 34.04568], zoom: 8};
+    this.view = await loadMap(this.mapViewRef.current, mapOptions, viewOptions);
+    this.map = this.view.map;
+    this.view.when(this._onMapLoad);
   }
 
   render(){
