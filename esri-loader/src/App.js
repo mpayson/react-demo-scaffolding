@@ -10,16 +10,17 @@ const MapDiv = styled.div`
 `
 
 class App extends PureComponent {
+
+  state = {
+    loaded: false
+  }
+
   constructor(props){
     super(props);
     this.mapViewRef = React.createRef();
-    this.state = {
-      loaded: false
-    }
-    this._onMapLoad = this._onMapLoad.bind(this);
   }
 
-  _onMapLoad(){
+  _onMapLoad = () => {
     this.setState({loaded: true});
   }
 
